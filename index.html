@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Analyst Data</title>
+<style>
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: 5px; text-align: center; }
+
+/* 下拉框和时间在一行，时间靠右 */
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+#datetime {
+    font-size: 14px;
+    color: #555;
+}
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+    <select id="scale-select">
+        <option value="">全部</option>
+        <option value="TOPIX Core30">TOPIX Core30</option>
+        <option value="TOPIX Large70">TOPIX Large70</option>
+        <option value="TOPIX Mid400">TOPIX Mid400</option>
+    </select>
+    <span id="datetime"></span>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>StrongBuy</th>
+        <th>Buy</th>
+        <th>Hold</th>
+        <th>Sell</th>
+        <th>StrongSell</th>
+        <th>CurAve %</th>
+        <th>Current</th>
+        <th>Low</th>
+        <th>Average</th>
+        <th>High</th>
+        <th>Market</th>
+        <th>Scale</th>
+    </tr>
+</thead>
+    <tbody id="result-tbody"></tbody>
+</table>
+
+<script>
+async function loadHtmlResults() {
+    const res = await fetch("data.json");
+    const json = await res.json();
+
+    // 显示更新时间
+    document.getElementById("datetime").textContent = "更新時間: " + json.DateTime;
+
+    // 按 CurAve 降序排序
+    json.Data.sort((a, b) => b.P.CurAve - a.P.CurAve);
+    return json.Data;
+}
+
+function filterByScaleName(data, scaleName) {
+    if (!scaleName) return data;
+    return data.filter(r => r.C.ScaleName === scaleName);
+}
+
+function renderTable(data) {
+    const tbody = document.getElementById("result-tbody");
+    tbody.innerHTML = "";
+
+    data.forEach(r => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>
+                <a href="https://finance.yahoo.com/quote/${r.C.Code}.T/analysis/" target="_blank">
+                    ${r.C.Code}
+                </a>
+            </td>
+            <td>
+                <a href="https://finance.yahoo.co.jp/quote/${r.C.Code}.T" target="_blank">
+                    ${r.C.Name}
+                </a>
+            </td>
+            <td>${r.P.StrongBuy.toFixed(1)}%</td>
+            <td>${r.P.Buy.toFixed(1)}%</td>
+            <td>${r.P.Hold.toFixed(1)}%</td>
+            <td>${r.P.Sell.toFixed(1)}%</td>
+            <td>${r.P.StrongSell.toFixed(1)}%</td>
+            <td>${r.P.CurAve.toFixed(2)}%</td>
+            <td>${r.F?.CurrentPrice?.Raw ?? "-"}</td>
+            <td>${r.F?.TargetLowPrice?.Raw ?? "-"}</td>
+            <td>${r.F?.TargetMeanPrice?.Raw ?? "-"}</td>
+            <td>${r.F?.TargetHighPrice?.Raw ?? "-"}</td>
+            <td>${r.C.Market}</td>
+            <td>${r.C.ScaleName}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+let allData = [];
+
+document.addEventListener("DOMContentLoaded", async () => {
+    allData = await loadHtmlResults();
+    renderTable(allData);
+
+    document.getElementById("scale-select").addEventListener("change", (e) => {
+        const scale = e.target.value;
+        const filtered = filterByScaleName(allData, scale);
+        renderTable(filtered);
+    });
+});
+</script>
+
+</body>
+</html>
