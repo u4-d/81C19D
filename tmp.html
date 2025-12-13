@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dividend Yield Table</title>
+<style>
+table {border-collapse: collapse; width: 100%;}
+th, td {border: 1px solid #ccc; padding: 5px; text-align: center;}
+th {background-color: #f0f0f0;}
+</style>
+</head>
+<body>
+<h2>Dividend Yield Table</h2>
+
+<label for="categorySelect" style="margin-left: 20px;">分类筛选:</label>
+<select id="categorySelect">
+    <option value="全部">全部</option>
+    <option value="TOPIX Core30">TOPIX Core30</option>
+    <option value="TOPIX Large70">TOPIX Large70</option>
+    <option value="TOPIX Mid400">TOPIX Mid400</option>
+    <option value="TOPIX Small 1">TOPIX Small 1</option>
+    <option value="TOPIX Small 2">TOPIX Small 2</option>
+    <!-- 这是一个注释 
+    <option value="TOPIX Group 1">TOPIX Group 1</option>
+    <option value="TOPIX Group 2">TOPIX Group 2</option>
+    -->
+    
+</select>
+
+<label for="monthSelect" style="margin-left: 20px;">月份筛选:</label>
+<select id="monthSelect"></select>
+
+<table id="dividendTable">
+<tr>
+<th>股票代码</th>
+<th>股票名称</th>
+<th>分红日期</th>
+<th>分红金额</th>
+<th>最近收盘价</th>
+<th>股息率</th>
+<th>股票分类</th>
+</tr>
+
+<!-- 数据行，Go 生成 -->
+{{range .}}
+<tr>
+<td>{{.Code}}</td>
+<td>{{.Name}}</td>
+<td>{{.DividendDate}}</td>
+<td>{{.DividendAmount}}</td>
+<td>{{printf "%.2f" .LastClose}}</td>
+<td>{{printf "%.2f" .Yield}}</td>
+<td>{{.ScaleName}}</td>
+</tr>
+{{end}}
+
+</table>
+
+<script>
+// 动态筛选
+const categorySelect = document.getElementById("categorySelect");
+const monthSelect = document.getElementById("monthSelect");
+const table = document.getElementById("dividendTable");
+
+function filterTable() {
+    const cat = categorySelect.value;
+    const month = monthSelect.value;
+
+    for (let i = 1; i < table.rows.length; i++) {
+        const row = table.rows[i];
+        const scale = row.cells[6].innerText;
+        const date = row.cells[2].innerText;
+
+        let show = true;
+        if (cat !== "全部" && scale !== cat) show = false;
+        if (month !== "全部" && !date.startsWith(month)) show = false;
+
+        row.style.display = show ? "" : "none";
+    }
+}
+
+// 初始排序：按股息率降序
+function sortTableByYield() {
+    let rows = Array.from(table.rows).slice(1);
+    rows.sort((a, b) => parseFloat(b.cells[5].innerText) - parseFloat(a.cells[5].innerText));
+    for (let r of rows) table.appendChild(r);
+}
+
+categorySelect.addEventListener("change", filterTable);
+monthSelect.addEventListener("change", filterTable);
+
+sortTableByYield(); // 初始排序
+// 填充当前月和下个月选项
+function fillMonthSelect(selectId) {
+    const monthSelect = document.getElementById(selectId);
+    if (!monthSelect) return;
+
+    // 清空已有选项
+    monthSelect.innerHTML = "";
+
+    const now = new Date();
+
+    // 当前月
+    const currMonth = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0");
+    // 下个月
+    const next = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    const nextMonth = next.getFullYear() + "-" + String(next.getMonth() + 1).padStart(2, "0");
+
+    // 添加“全部”
+    const allOption = document.createElement("option");
+    allOption.value = "全部";
+    allOption.text = "全部";
+    monthSelect.appendChild(allOption);
+
+    // 添加当前月
+    const currOption = document.createElement("option");
+    currOption.value = currMonth;
+    currOption.text = currMonth;
+    monthSelect.appendChild(currOption);
+
+    // 添加下个月
+    const nextOption = document.createElement("option");
+    nextOption.value = nextMonth;
+    nextOption.text = nextMonth;
+    monthSelect.appendChild(nextOption);
+}
+
+// 调用函数
+fillMonthSelect("monthSelect");
+</script>
+
+</body>
+</html>
