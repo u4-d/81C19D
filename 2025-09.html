@@ -1,0 +1,4923 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dividend Yield Table</title>
+<style>
+table {border-collapse: collapse; width: 100%;}
+th, td {border: 1px solid #ccc; padding: 5px; text-align: center;}
+th {background-color: #f0f0f0;}
+</style>
+</head>
+<body>
+<h2>Dividend Yield Table</h2>
+
+<label for="categorySelect" style="margin-left: 20px;">分类筛选:</label>
+<select id="categorySelect">
+    <option value="全部">全部</option>
+    <option value="TOPIX Core30">TOPIX Core30</option>
+    <option value="TOPIX Large70">TOPIX Large70</option>
+    <option value="TOPIX Mid400">TOPIX Mid400</option>
+    <option value="TOPIX Small 1">TOPIX Small 1</option>
+    <option value="TOPIX Small 2">TOPIX Small 2</option>
+    <!-- 这是一个注释 
+    <option value="TOPIX Group 1">TOPIX Group 1</option>
+    <option value="TOPIX Group 2">TOPIX Group 2</option>
+    -->
+    
+</select>
+
+<label for="monthSelect" style="margin-left: 20px;">月份筛选:</label>
+<select id="monthSelect"></select>
+
+<table id="dividendTable">
+<tr>
+<th>股票代码</th>
+<th>股票名称</th>
+<th>分红日期</th>
+<th>分红金额</th>
+<th>最近收盘价</th>
+<th>股息率</th>
+<th>股票分类</th>
+</tr>
+
+<!-- 数据行，Go 生成 -->
+
+<tr>
+<td>1417</td>
+<td>ミライト・ワン</td>
+<td>2025-09-29</td>
+<td>90.00</td>
+<td>2861.00</td>
+<td>3.15</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1808</td>
+<td>長谷工コーポレーション</td>
+<td>2025-09-29</td>
+<td>90.00</td>
+<td>2477.50</td>
+<td>3.63</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1721</td>
+<td>コムシスホールディングス</td>
+<td>2025-09-29</td>
+<td>120.00</td>
+<td>3720.00</td>
+<td>3.23</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1802</td>
+<td>大林組</td>
+<td>2025-09-29</td>
+<td>82.00</td>
+<td>2441.50</td>
+<td>3.36</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1803</td>
+<td>清水建設</td>
+<td>2025-09-29</td>
+<td>44.00</td>
+<td>2058.00</td>
+<td>2.14</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1801</td>
+<td>大成建設</td>
+<td>2025-09-29</td>
+<td>150.00</td>
+<td>9983.00</td>
+<td>1.50</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1605</td>
+<td>INPEX</td>
+<td>2025-12-29</td>
+<td>100.00</td>
+<td>2605.50</td>
+<td>3.84</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1332</td>
+<td>ニッスイ</td>
+<td>2025-09-29</td>
+<td>28.00</td>
+<td>1065.50</td>
+<td>2.63</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1812</td>
+<td>鹿島建設</td>
+<td>2025-09-29</td>
+<td>112.00</td>
+<td>4492.00</td>
+<td>2.49</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1893</td>
+<td>五洋建設</td>
+<td>2025-09-29</td>
+<td>34.00</td>
+<td>1067.50</td>
+<td>3.19</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1878</td>
+<td>大東建託</td>
+<td>2025-09-29</td>
+<td>410.60</td>
+<td>16095.00</td>
+<td>2.55</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1860</td>
+<td>戸田建設</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>1055.50</td>
+<td>3.79</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1911</td>
+<td>住友林業</td>
+<td>2025-12-29</td>
+<td>50.00</td>
+<td>1752.50</td>
+<td>2.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1414</td>
+<td>ショーボンドホールディングス</td>
+<td>2025-12-29</td>
+<td>200.00</td>
+<td>5216.00</td>
+<td>3.83</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1820</td>
+<td>西松建設</td>
+<td>2025-09-29</td>
+<td>220.00</td>
+<td>5280.00</td>
+<td>4.17</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1925</td>
+<td>大和ハウス工業</td>
+<td>2025-09-29</td>
+<td>170.00</td>
+<td>5363.00</td>
+<td>3.17</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>1928</td>
+<td>積水ハウス</td>
+<td>2026-01-29</td>
+<td>144.00</td>
+<td>3430.00</td>
+<td>4.20</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>1942</td>
+<td>関電工</td>
+<td>2025-09-29</td>
+<td>90.00</td>
+<td>4003.00</td>
+<td>2.25</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1951</td>
+<td>エクシオグループ</td>
+<td>2025-09-29</td>
+<td>66.00</td>
+<td>2200.00</td>
+<td>3.00</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1969</td>
+<td>高砂熱学工業</td>
+<td>2025-09-29</td>
+<td>88.00</td>
+<td>8840.00</td>
+<td>1.00</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1959</td>
+<td>九電工</td>
+<td>2025-09-29</td>
+<td>180.00</td>
+<td>7194.00</td>
+<td>2.50</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2127</td>
+<td>日本M&Aセンターホールディングス</td>
+<td>2025-09-29</td>
+<td>23.00</td>
+<td>787.00</td>
+<td>2.92</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2175</td>
+<td>エス・エム・エス</td>
+<td>2025-03-28</td>
+<td>57.00</td>
+<td>1602.50</td>
+<td>3.56</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1963</td>
+<td>日揮ホールディングス</td>
+<td>2026-03-30</td>
+<td>40.00</td>
+<td>1478.50</td>
+<td>2.71</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2002</td>
+<td>日清製粉グループ本社</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>1848.00</td>
+<td>3.25</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2181</td>
+<td>パーソルホールディングス</td>
+<td>2025-09-29</td>
+<td>11.00</td>
+<td>281.80</td>
+<td>3.90</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2201</td>
+<td>森永製菓</td>
+<td>2025-09-29</td>
+<td>65.00</td>
+<td>2701.50</td>
+<td>2.41</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>1944</td>
+<td>きんでん</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>5215.00</td>
+<td>1.92</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2206</td>
+<td>江崎グリコ</td>
+<td>2025-12-29</td>
+<td>100.00</td>
+<td>5100.00</td>
+<td>1.96</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2222</td>
+<td>寿スピリッツ</td>
+<td>2026-03-30</td>
+<td>70.00</td>
+<td>1825.00</td>
+<td>3.84</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2212</td>
+<td>山崎製パン</td>
+<td>2025-12-29</td>
+<td>50.00</td>
+<td>3373.00</td>
+<td>1.48</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2229</td>
+<td>カルビー</td>
+<td>2026-03-30</td>
+<td>118.00</td>
+<td>2750.00</td>
+<td>4.29</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2264</td>
+<td>森永乳業</td>
+<td>2025-09-29</td>
+<td>93.00</td>
+<td>3565.00</td>
+<td>2.61</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2269</td>
+<td>明治ホールディングス</td>
+<td>2025-09-29</td>
+<td>105.00</td>
+<td>3186.00</td>
+<td>3.30</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2267</td>
+<td>ヤクルト本社</td>
+<td>2025-09-29</td>
+<td>66.00</td>
+<td>2484.00</td>
+<td>2.66</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2327</td>
+<td>日鉄ソリューションズ</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>3472.00</td>
+<td>2.30</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2282</td>
+<td>日本ハム</td>
+<td>2026-03-30</td>
+<td>156.00</td>
+<td>5749.00</td>
+<td>2.71</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2331</td>
+<td>ALSOK</td>
+<td>2025-09-29</td>
+<td>27.20</td>
+<td>1165.50</td>
+<td>2.33</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2371</td>
+<td>カカクコム</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>2685.00</td>
+<td>1.86</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2413</td>
+<td>エムスリー</td>
+<td>2025-03-28</td>
+<td>42.00</td>
+<td>2342.50</td>
+<td>1.79</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2432</td>
+<td>ディー・エヌ・エー</td>
+<td>2025-03-28</td>
+<td>33.00</td>
+<td>2255.00</td>
+<td>1.46</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2433</td>
+<td>博報堂DYホールディングス</td>
+<td>2025-09-29</td>
+<td>32.00</td>
+<td>1206.00</td>
+<td>2.65</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2503</td>
+<td>キリンホールディングス</td>
+<td>2025-12-29</td>
+<td>74.00</td>
+<td>2255.50</td>
+<td>3.28</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>2502</td>
+<td>アサヒグループホールディングス</td>
+<td>2025-12-29</td>
+<td>52.00</td>
+<td>1896.50</td>
+<td>2.74</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>2579</td>
+<td>コカ・コーラ ボトラーズジャパンホールディングス</td>
+<td>2025-12-29</td>
+<td>57.00</td>
+<td>2735.00</td>
+<td>2.08</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2587</td>
+<td>サントリー食品インターナショナル</td>
+<td>2025-12-29</td>
+<td>120.00</td>
+<td>4707.00</td>
+<td>2.55</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2593</td>
+<td>伊藤園</td>
+<td>2025-10-30</td>
+<td>48.00</td>
+<td>3630.00</td>
+<td>1.32</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2607</td>
+<td>不二製油</td>
+<td>2025-09-29</td>
+<td>52.00</td>
+<td>3655.00</td>
+<td>1.42</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2670</td>
+<td>エービーシー・マート</td>
+<td>2026-02-26</td>
+<td>70.00</td>
+<td>3255.00</td>
+<td>2.15</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2768</td>
+<td>双日</td>
+<td>2025-09-29</td>
+<td>165.00</td>
+<td>4011.00</td>
+<td>4.11</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2501</td>
+<td>サッポロホールディングス</td>
+<td>2025-12-29</td>
+<td>120.00</td>
+<td>7462.00</td>
+<td>1.61</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2784</td>
+<td>アルフレッサ ホールディングス</td>
+<td>2025-09-29</td>
+<td>68.00</td>
+<td>2278.50</td>
+<td>2.98</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2801</td>
+<td>キッコーマン</td>
+<td>2025-09-29</td>
+<td>30.00</td>
+<td>1305.00</td>
+<td>2.30</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2809</td>
+<td>キユーピー</td>
+<td>2025-11-27</td>
+<td>54.00</td>
+<td>4256.00</td>
+<td>1.27</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2810</td>
+<td>ハウス食品グループ本社</td>
+<td>2025-09-29</td>
+<td>48.00</td>
+<td>2921.00</td>
+<td>1.64</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2811</td>
+<td>カゴメ</td>
+<td>2025-12-29</td>
+<td>48.00</td>
+<td>2970.00</td>
+<td>1.62</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2871</td>
+<td>ニチレイ</td>
+<td>2025-09-29</td>
+<td>48.00</td>
+<td>1699.00</td>
+<td>2.83</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2875</td>
+<td>東洋水産</td>
+<td>2025-09-29</td>
+<td>240.00</td>
+<td>10465.00</td>
+<td>2.29</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3003</td>
+<td>ヒューリック</td>
+<td>2025-12-29</td>
+<td>57.00</td>
+<td>1597.00</td>
+<td>3.57</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2914</td>
+<td>日本たばこ産業</td>
+<td>2025-12-29</td>
+<td>208.00</td>
+<td>4742.00</td>
+<td>4.39</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>3038</td>
+<td>神戸物産</td>
+<td>2025-10-30</td>
+<td>52.00</td>
+<td>4144.00</td>
+<td>1.25</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2802</td>
+<td>味の素</td>
+<td>2025-09-29</td>
+<td>48.00</td>
+<td>4200.00</td>
+<td>1.14</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>3048</td>
+<td>ビックカメラ</td>
+<td>2025-08-28</td>
+<td>40.00</td>
+<td>1640.00</td>
+<td>2.44</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>2897</td>
+<td>日清食品ホールディングス</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>2855.00</td>
+<td>2.45</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3086</td>
+<td>J.フロント リテイリング</td>
+<td>2026-02-26</td>
+<td>54.00</td>
+<td>2420.00</td>
+<td>2.23</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3088</td>
+<td>マツキヨココカラ&カンパニー</td>
+<td>2025-09-29</td>
+<td>46.00</td>
+<td>3177.00</td>
+<td>1.45</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3092</td>
+<td>ZOZO</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>1404.00</td>
+<td>2.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3099</td>
+<td>三越伊勢丹ホールディングス</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>2733.50</td>
+<td>2.19</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3105</td>
+<td>日清紡ホールディングス</td>
+<td>2025-12-29</td>
+<td>36.00</td>
+<td>1172.50</td>
+<td>3.07</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3107</td>
+<td>ダイワボウホールディングス</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>3108.00</td>
+<td>3.22</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3116</td>
+<td>トヨタ紡織</td>
+<td>2025-09-29</td>
+<td>86.00</td>
+<td>2485.00</td>
+<td>3.46</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3064</td>
+<td>MonotaRO</td>
+<td>2025-12-29</td>
+<td>32.00</td>
+<td>2524.00</td>
+<td>1.27</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3132</td>
+<td>マクニカホールディングス</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>2057.50</td>
+<td>3.40</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3141</td>
+<td>ウエルシアホールディングス</td>
+<td>2025-08-28</td>
+<td>36.00</td>
+<td>2889.00</td>
+<td>1.25</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3197</td>
+<td>すかいらーくホールディングス</td>
+<td>2025-12-29</td>
+<td>24.00</td>
+<td>3064.00</td>
+<td>0.78</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3231</td>
+<td>野村不動産ホールディングス</td>
+<td>2025-09-29</td>
+<td>36.00</td>
+<td>934.80</td>
+<td>3.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3288</td>
+<td>オープンハウスグループ</td>
+<td>2025-09-29</td>
+<td>188.00</td>
+<td>7886.00</td>
+<td>2.38</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3289</td>
+<td>東急不動産ホールディングス</td>
+<td>2025-09-29</td>
+<td>42.00</td>
+<td>1223.50</td>
+<td>3.43</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3291</td>
+<td>飯田グループホールディングス</td>
+<td>2025-09-29</td>
+<td>90.00</td>
+<td>2416.50</td>
+<td>3.72</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3349</td>
+<td>コスモス薬品</td>
+<td>2025-11-27</td>
+<td>75.00</td>
+<td>8783.00</td>
+<td>0.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3382</td>
+<td>セブン&アイ・ホールディングス</td>
+<td>2026-02-26</td>
+<td>50.00</td>
+<td>1939.50</td>
+<td>2.58</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>3391</td>
+<td>ツルハホールディングス</td>
+<td>2026-02-26</td>
+<td>267.00</td>
+<td>2538.50</td>
+<td>10.52</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3397</td>
+<td>トリドールホールディングス</td>
+<td>2026-03-30</td>
+<td>21.00</td>
+<td>5039.00</td>
+<td>0.42</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3360</td>
+<td>シップヘルスケアホールディングス</td>
+<td>2026-03-30</td>
+<td>120.00</td>
+<td>2259.50</td>
+<td>5.31</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3401</td>
+<td>帝人</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>1302.00</td>
+<td>3.84</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3405</td>
+<td>クラレ</td>
+<td>2025-12-29</td>
+<td>54.00</td>
+<td>1814.00</td>
+<td>2.98</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3407</td>
+<td>旭化成</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>1220.00</td>
+<td>3.28</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>3436</td>
+<td>SUMCO</td>
+<td>2025-06-27</td>
+<td>16.00</td>
+<td>1270.50</td>
+<td>1.26</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3549</td>
+<td>クスリのアオキホールディングス</td>
+<td>2025-11-19</td>
+<td>16.00</td>
+<td>3959.00</td>
+<td>0.40</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3563</td>
+<td>FOOD & LIFE COMPANIES</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>7933.00</td>
+<td>0.76</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3591</td>
+<td>ワコールホールディングス</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>5809.00</td>
+<td>1.72</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3626</td>
+<td>TIS</td>
+<td>2025-09-29</td>
+<td>76.00</td>
+<td>4961.00</td>
+<td>1.53</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3635</td>
+<td>コーエーテクモホールディングス</td>
+<td>2026-03-30</td>
+<td>86.00</td>
+<td>1901.50</td>
+<td>4.52</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3402</td>
+<td>東レ</td>
+<td>2025-09-29</td>
+<td>20.00</td>
+<td>991.40</td>
+<td>2.02</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3659</td>
+<td>ネクソン</td>
+<td>2025-12-29</td>
+<td>30.00</td>
+<td>3416.00</td>
+<td>0.88</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3765</td>
+<td>ガンホー・オンライン・エンターテイメント</td>
+<td>2024-12-27</td>
+<td>120.00</td>
+<td>2812.50</td>
+<td>4.27</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3769</td>
+<td>GMOペイメントゲートウェイ</td>
+<td>2025-09-29</td>
+<td>240.00</td>
+<td>8309.00</td>
+<td>2.89</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3774</td>
+<td>インターネットイニシアティブ</td>
+<td>2025-09-29</td>
+<td>39.00</td>
+<td>2736.00</td>
+<td>1.43</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3861</td>
+<td>王子ホールディングス</td>
+<td>2025-09-29</td>
+<td>36.00</td>
+<td>839.30</td>
+<td>4.29</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3923</td>
+<td>ラクス</td>
+<td>2026-03-30</td>
+<td>7.75</td>
+<td>2700.00</td>
+<td>0.29</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>3941</td>
+<td>レンゴー</td>
+<td>2025-09-29</td>
+<td>30.00</td>
+<td>951.60</td>
+<td>3.15</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4005</td>
+<td>住友化学</td>
+<td>2025-09-29</td>
+<td>12.00</td>
+<td>471.80</td>
+<td>2.54</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4004</td>
+<td>レゾナック・ホールディングス</td>
+<td>2025-12-29</td>
+<td>130.00</td>
+<td>3944.00</td>
+<td>3.30</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4021</td>
+<td>日産化学</td>
+<td>2025-09-29</td>
+<td>212.00</td>
+<td>5339.00</td>
+<td>3.97</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4042</td>
+<td>東ソー</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>2351.50</td>
+<td>4.25</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4043</td>
+<td>トクヤマ</td>
+<td>2025-09-29</td>
+<td>120.00</td>
+<td>3481.00</td>
+<td>3.45</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4045</td>
+<td>東亞合成</td>
+<td>2025-12-29</td>
+<td>65.00</td>
+<td>1561.00</td>
+<td>4.16</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4061</td>
+<td>デンカ</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>2366.50</td>
+<td>4.23</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4062</td>
+<td>イビデン</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>7214.00</td>
+<td>0.55</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4063</td>
+<td>信越化学工業</td>
+<td>2025-09-29</td>
+<td>106.00</td>
+<td>4403.00</td>
+<td>2.41</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>4091</td>
+<td>日本酸素ホールディングス</td>
+<td>2025-09-29</td>
+<td>54.00</td>
+<td>5455.00</td>
+<td>0.99</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4114</td>
+<td>日本触媒</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>1906.00</td>
+<td>5.25</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4118</td>
+<td>カネカ</td>
+<td>2025-09-29</td>
+<td>160.00</td>
+<td>4359.00</td>
+<td>3.67</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4151</td>
+<td>協和キリン</td>
+<td>2025-12-29</td>
+<td>60.00</td>
+<td>2620.00</td>
+<td>2.29</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4183</td>
+<td>三井化学</td>
+<td>2025-09-29</td>
+<td>150.00</td>
+<td>3802.00</td>
+<td>3.95</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4182</td>
+<td>三菱瓦斯化学</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>2693.00</td>
+<td>3.71</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4186</td>
+<td>東京応化工業</td>
+<td>2025-12-29</td>
+<td>70.00</td>
+<td>4650.00</td>
+<td>1.51</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4088</td>
+<td>エア・ウォーター</td>
+<td>2025-09-29</td>
+<td>75.00</td>
+<td>2634.50</td>
+<td>2.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4188</td>
+<td>三菱ケミカルグループ</td>
+<td>2025-09-29</td>
+<td>32.00</td>
+<td>878.20</td>
+<td>3.64</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4202</td>
+<td>ダイセル</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>1395.00</td>
+<td>4.30</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4204</td>
+<td>積水化学工業</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>2870.00</td>
+<td>2.79</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4203</td>
+<td>住友ベークライト</td>
+<td>2025-09-29</td>
+<td>110.00</td>
+<td>5096.00</td>
+<td>2.16</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4205</td>
+<td>日本ゼオン</td>
+<td>2025-09-29</td>
+<td>72.00</td>
+<td>1725.50</td>
+<td>4.17</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4206</td>
+<td>アイカ工業</td>
+<td>2025-09-29</td>
+<td>140.00</td>
+<td>3815.00</td>
+<td>3.67</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4208</td>
+<td>UBE</td>
+<td>2025-09-29</td>
+<td>110.00</td>
+<td>2422.00</td>
+<td>4.54</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4272</td>
+<td>日本化薬</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>1455.00</td>
+<td>4.12</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4307</td>
+<td>野村総合研究所</td>
+<td>2025-09-29</td>
+<td>78.00</td>
+<td>5601.00</td>
+<td>1.39</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4324</td>
+<td>電通グループ</td>
+<td>2025-12-29</td>
+<td>139.50</td>
+<td>3098.00</td>
+<td>4.50</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4401</td>
+<td>ADEKA</td>
+<td>2025-09-29</td>
+<td>104.00</td>
+<td>3393.00</td>
+<td>3.07</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4452</td>
+<td>花王</td>
+<td>2025-12-29</td>
+<td>154.00</td>
+<td>6935.00</td>
+<td>2.22</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4483</td>
+<td>JMDC</td>
+<td>2025-03-28</td>
+<td>32.00</td>
+<td>4279.00</td>
+<td>0.75</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4502</td>
+<td>武田薬品工業</td>
+<td>2025-09-29</td>
+<td>200.00</td>
+<td>4574.00</td>
+<td>4.37</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>4516</td>
+<td>日本新薬</td>
+<td>2025-09-29</td>
+<td>124.00</td>
+<td>3294.00</td>
+<td>3.76</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4507</td>
+<td>塩野義製薬</td>
+<td>2025-09-29</td>
+<td>66.00</td>
+<td>2665.00</td>
+<td>2.48</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4519</td>
+<td>中外製薬</td>
+<td>2025-12-29</td>
+<td>100.00</td>
+<td>6615.00</td>
+<td>1.51</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4403</td>
+<td>日油</td>
+<td>2025-09-29</td>
+<td>48.00</td>
+<td>2673.00</td>
+<td>1.80</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4521</td>
+<td>科研製薬</td>
+<td>2025-09-29</td>
+<td>190.00</td>
+<td>3932.00</td>
+<td>4.83</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4523</td>
+<td>エーザイ</td>
+<td>2025-09-29</td>
+<td>160.00</td>
+<td>5137.00</td>
+<td>3.11</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4527</td>
+<td>ロート製薬</td>
+<td>2025-09-29</td>
+<td>42.00</td>
+<td>2601.00</td>
+<td>1.61</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4503</td>
+<td>アステラス製薬</td>
+<td>2025-09-29</td>
+<td>78.00</td>
+<td>1701.00</td>
+<td>4.59</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4528</td>
+<td>小野薬品工業</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>1736.00</td>
+<td>4.61</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4530</td>
+<td>久光製薬</td>
+<td>2026-02-26</td>
+<td>90.00</td>
+<td>4374.00</td>
+<td>2.06</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4540</td>
+<td>ツムラ</td>
+<td>2025-09-29</td>
+<td>136.00</td>
+<td>3762.00</td>
+<td>3.62</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4543</td>
+<td>テルモ</td>
+<td>2025-09-29</td>
+<td>30.00</td>
+<td>2645.50</td>
+<td>1.13</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4544</td>
+<td>H.U.グループホールディングス</td>
+<td>2025-09-29</td>
+<td>125.00</td>
+<td>3798.00</td>
+<td>3.29</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4568</td>
+<td>第一三共</td>
+<td>2025-09-29</td>
+<td>78.00</td>
+<td>3621.00</td>
+<td>2.15</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>4578</td>
+<td>大塚ホールディングス</td>
+<td>2025-12-29</td>
+<td>140.00</td>
+<td>8251.00</td>
+<td>1.70</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4536</td>
+<td>参天製薬</td>
+<td>2025-09-29</td>
+<td>38.00</td>
+<td>1614.00</td>
+<td>2.35</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4613</td>
+<td>関西ペイント</td>
+<td>2025-09-29</td>
+<td>110.00</td>
+<td>2512.50</td>
+<td>4.38</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4612</td>
+<td>日本ペイントホールディングス</td>
+<td>2025-12-29</td>
+<td>16.00</td>
+<td>1045.00</td>
+<td>1.53</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4631</td>
+<td>DIC</td>
+<td>2025-12-29</td>
+<td>140.00</td>
+<td>3636.00</td>
+<td>3.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4661</td>
+<td>オリエンタルランド</td>
+<td>2025-09-29</td>
+<td>14.00</td>
+<td>3648.00</td>
+<td>0.38</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4666</td>
+<td>パーク24</td>
+<td>2025-10-30</td>
+<td>35.00</td>
+<td>2003.50</td>
+<td>1.75</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4665</td>
+<td>ダスキン</td>
+<td>2025-09-29</td>
+<td>130.00</td>
+<td>3961.00</td>
+<td>3.28</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4676</td>
+<td>フジ・メディア・ホールディングス</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>3360.00</td>
+<td>1.49</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4681</td>
+<td>リゾートトラスト</td>
+<td>2025-09-29</td>
+<td>32.00</td>
+<td>1872.00</td>
+<td>1.71</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4684</td>
+<td>オービック</td>
+<td>2025-09-29</td>
+<td>74.00</td>
+<td>5250.00</td>
+<td>1.41</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4689</td>
+<td>LINEヤフー</td>
+<td>2026-03-30</td>
+<td>14.00</td>
+<td>476.20</td>
+<td>2.94</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4704</td>
+<td>トレンドマイクロ</td>
+<td>2024-12-27</td>
+<td>240.00</td>
+<td>7781.00</td>
+<td>3.08</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4716</td>
+<td>日本オラクル</td>
+<td>2025-05-29</td>
+<td>380.00</td>
+<td>14930.00</td>
+<td>2.55</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4732</td>
+<td>ユー・エス・エス</td>
+<td>2025-09-29</td>
+<td>50.40</td>
+<td>1827.00</td>
+<td>2.76</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4733</td>
+<td>オービックビジネスコンサルタント</td>
+<td>2025-09-29</td>
+<td>106.00</td>
+<td>8713.00</td>
+<td>1.22</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4751</td>
+<td>サイバーエージェント</td>
+<td>2025-09-29</td>
+<td>33.00</td>
+<td>1763.00</td>
+<td>1.87</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4768</td>
+<td>大塚商会</td>
+<td>2025-12-29</td>
+<td>80.00</td>
+<td>3045.00</td>
+<td>2.63</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4887</td>
+<td>サワイグループホールディングス</td>
+<td>2025-09-29</td>
+<td>55.00</td>
+<td>1993.50</td>
+<td>2.76</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4901</td>
+<td>富士フイルムホールディングス</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>3607.00</td>
+<td>1.94</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4902</td>
+<td>コニカミノルタ</td>
+<td>2025-09-29</td>
+<td>10.00</td>
+<td>544.80</td>
+<td>1.84</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4911</td>
+<td>資生堂</td>
+<td>2025-12-29</td>
+<td>40.00</td>
+<td>2402.50</td>
+<td>1.66</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>4922</td>
+<td>コーセー</td>
+<td>2025-12-29</td>
+<td>140.00</td>
+<td>5764.00</td>
+<td>2.43</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4912</td>
+<td>ライオン</td>
+<td>2025-12-29</td>
+<td>30.00</td>
+<td>1616.00</td>
+<td>1.86</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4927</td>
+<td>ポーラ・オルビスホールディングス</td>
+<td>2025-12-29</td>
+<td>52.00</td>
+<td>1306.50</td>
+<td>3.98</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4967</td>
+<td>小林製薬</td>
+<td>2025-12-29</td>
+<td>104.00</td>
+<td>5384.00</td>
+<td>1.93</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>4980</td>
+<td>デクセリアルズ</td>
+<td>2025-09-29</td>
+<td>58.00</td>
+<td>1955.50</td>
+<td>2.97</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5016</td>
+<td>JX金属</td>
+<td>2025-09-29</td>
+<td>18.00</td>
+<td>1474.50</td>
+<td>1.22</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5019</td>
+<td>出光興産</td>
+<td>2025-09-29</td>
+<td>36.00</td>
+<td>1011.00</td>
+<td>3.56</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5020</td>
+<td>ENEOSホールディングス</td>
+<td>2025-09-29</td>
+<td>30.00</td>
+<td>890.80</td>
+<td>3.37</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>5021</td>
+<td>コスモエネルギーホールディングス</td>
+<td>2025-09-29</td>
+<td>180.00</td>
+<td>7212.00</td>
+<td>2.50</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5076</td>
+<td>インフロニア・ホールディングス</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>1513.50</td>
+<td>3.96</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5101</td>
+<td>横浜ゴム</td>
+<td>2025-12-29</td>
+<td>128.00</td>
+<td>5781.00</td>
+<td>2.21</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5105</td>
+<td>TOYO TIRE</td>
+<td>2025-12-29</td>
+<td>125.00</td>
+<td>3833.00</td>
+<td>3.26</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5110</td>
+<td>住友ゴム工業</td>
+<td>2025-12-29</td>
+<td>70.00</td>
+<td>1783.50</td>
+<td>3.92</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5201</td>
+<td>AGC</td>
+<td>2025-12-29</td>
+<td>210.00</td>
+<td>4759.00</td>
+<td>4.41</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5214</td>
+<td>日本電気硝子</td>
+<td>2025-12-29</td>
+<td>150.00</td>
+<td>4809.00</td>
+<td>3.12</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5232</td>
+<td>住友大阪セメント</td>
+<td>2025-09-29</td>
+<td>120.00</td>
+<td>4078.00</td>
+<td>2.94</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5108</td>
+<td>ブリヂストン</td>
+<td>2025-12-29</td>
+<td>230.00</td>
+<td>6961.00</td>
+<td>3.30</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>5233</td>
+<td>太平洋セメント</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>4170.00</td>
+<td>2.40</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5332</td>
+<td>TOTO</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>4044.00</td>
+<td>2.47</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5334</td>
+<td>日本特殊陶業</td>
+<td>2025-09-29</td>
+<td>182.00</td>
+<td>5518.00</td>
+<td>3.30</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5333</td>
+<td>日本碍子</td>
+<td>2025-09-29</td>
+<td>66.00</td>
+<td>2401.50</td>
+<td>2.75</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5344</td>
+<td>MARUWA</td>
+<td>2025-09-29</td>
+<td>102.00</td>
+<td>40150.00</td>
+<td>0.25</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5393</td>
+<td>ニチアス</td>
+<td>2025-09-29</td>
+<td>152.00</td>
+<td>5781.00</td>
+<td>2.63</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5401</td>
+<td>日本製鉄</td>
+<td>2025-09-29</td>
+<td>120.00</td>
+<td>3387.00</td>
+<td>3.54</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>5406</td>
+<td>神戸製鋼所</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>1885.00</td>
+<td>4.24</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5411</td>
+<td>JFEホールディングス</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>1951.50</td>
+<td>4.10</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5444</td>
+<td>大和工業</td>
+<td>2025-09-29</td>
+<td>400.00</td>
+<td>10145.00</td>
+<td>3.94</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5301</td>
+<td>東海カーボン</td>
+<td>2025-12-29</td>
+<td>30.00</td>
+<td>1040.00</td>
+<td>2.88</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5463</td>
+<td>丸一鋼管</td>
+<td>2025-09-29</td>
+<td>45.00</td>
+<td>3900.00</td>
+<td>1.15</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5471</td>
+<td>大同特殊鋼</td>
+<td>2025-09-29</td>
+<td>42.00</td>
+<td>1325.00</td>
+<td>3.17</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5631</td>
+<td>日本製鋼所</td>
+<td>2025-09-29</td>
+<td>88.00</td>
+<td>8878.00</td>
+<td>0.99</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5706</td>
+<td>三井金属鉱業</td>
+<td>2025-09-29</td>
+<td>195.00</td>
+<td>10550.00</td>
+<td>1.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5711</td>
+<td>三菱マテリアル</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>2598.50</td>
+<td>3.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5713</td>
+<td>住友金属鉱山</td>
+<td>2025-09-29</td>
+<td>132.00</td>
+<td>4194.00</td>
+<td>3.15</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5714</td>
+<td>DOWAホールディングス</td>
+<td>2026-03-30</td>
+<td>159.00</td>
+<td>5427.00</td>
+<td>2.93</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5801</td>
+<td>古河電気工業</td>
+<td>2026-03-30</td>
+<td>240.00</td>
+<td>8820.00</td>
+<td>2.72</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5803</td>
+<td>フジクラ</td>
+<td>2025-09-29</td>
+<td>150.00</td>
+<td>13340.00</td>
+<td>1.12</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5802</td>
+<td>住友電気工業</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>4140.00</td>
+<td>2.42</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>5830</td>
+<td>いよぎんホールディングス</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>2026.00</td>
+<td>2.47</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5831</td>
+<td>しずおかフィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>72.00</td>
+<td>1941.00</td>
+<td>3.71</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5832</td>
+<td>ちゅうぎんフィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>74.00</td>
+<td>2114.00</td>
+<td>3.50</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5844</td>
+<td>京都フィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>2903.00</td>
+<td>2.41</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5929</td>
+<td>三和ホールディングス</td>
+<td>2025-09-29</td>
+<td>124.00</td>
+<td>4781.00</td>
+<td>2.59</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5938</td>
+<td>LIXIL</td>
+<td>2025-09-29</td>
+<td>90.00</td>
+<td>1972.00</td>
+<td>4.56</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5947</td>
+<td>リンナイ</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>3723.00</td>
+<td>2.69</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>5991</td>
+<td>日本発條</td>
+<td>2025-09-29</td>
+<td>66.00</td>
+<td>1985.00</td>
+<td>3.32</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6005</td>
+<td>三浦工業</td>
+<td>2025-09-29</td>
+<td>67.00</td>
+<td>2884.00</td>
+<td>2.32</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6028</td>
+<td>テクノプロ・ホールディングス</td>
+<td>2025-06-27</td>
+<td>85.00</td>
+<td>4826.00</td>
+<td>1.76</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6098</td>
+<td>リクルートホールディングス</td>
+<td>2025-09-29</td>
+<td>25.00</td>
+<td>8461.00</td>
+<td>0.30</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>6113</td>
+<td>アマダ</td>
+<td>2025-09-29</td>
+<td>62.00</td>
+<td>1873.50</td>
+<td>3.31</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6134</td>
+<td>FUJI</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>2754.50</td>
+<td>2.90</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6136</td>
+<td>オーエスジー</td>
+<td>2025-11-27</td>
+<td>60.00</td>
+<td>2041.00</td>
+<td>2.94</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6141</td>
+<td>DMG森精機</td>
+<td>2025-12-29</td>
+<td>110.00</td>
+<td>3016.00</td>
+<td>3.65</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6146</td>
+<td>ディスコ</td>
+<td>2025-09-29</td>
+<td>399.00</td>
+<td>38250.00</td>
+<td>1.04</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6178</td>
+<td>日本郵政</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>1540.00</td>
+<td>3.25</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6201</td>
+<td>豊田自動織機</td>
+<td>2025-09-29</td>
+<td>280.00</td>
+<td>16575.00</td>
+<td>1.69</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6268</td>
+<td>ナブテスコ</td>
+<td>2025-12-29</td>
+<td>80.00</td>
+<td>3222.00</td>
+<td>2.48</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6273</td>
+<td>SMC</td>
+<td>2025-09-29</td>
+<td>1,000.00</td>
+<td>44780.00</td>
+<td>0.00</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6301</td>
+<td>小松製作所</td>
+<td>2025-09-29</td>
+<td>190.00</td>
+<td>5133.00</td>
+<td>3.70</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6302</td>
+<td>住友重機械工業</td>
+<td>2025-12-29</td>
+<td>125.00</td>
+<td>3400.00</td>
+<td>3.68</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6305</td>
+<td>日立建機</td>
+<td>2025-09-29</td>
+<td>200.00</td>
+<td>4802.00</td>
+<td>4.16</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6326</td>
+<td>クボタ</td>
+<td>2025-12-29</td>
+<td>50.00</td>
+<td>1822.50</td>
+<td>2.74</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6323</td>
+<td>ローツェ</td>
+<td>2026-02-26</td>
+<td>34.00</td>
+<td>1680.00</td>
+<td>2.02</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6361</td>
+<td>荏原製作所</td>
+<td>2025-12-29</td>
+<td>56.00</td>
+<td>3099.00</td>
+<td>1.81</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6367</td>
+<td>ダイキン工業</td>
+<td>2025-09-29</td>
+<td>330.00</td>
+<td>18420.00</td>
+<td>1.79</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>6383</td>
+<td>ダイフク</td>
+<td>2025-12-29</td>
+<td>68.00</td>
+<td>4785.00</td>
+<td>1.42</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6395</td>
+<td>タダノ</td>
+<td>2025-12-29</td>
+<td>36.00</td>
+<td>1075.00</td>
+<td>3.35</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6417</td>
+<td>SANKYO</td>
+<td>2025-03-28</td>
+<td>100.00</td>
+<td>3016.00</td>
+<td>3.32</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6406</td>
+<td>フジテック</td>
+<td>2025-09-29</td>
+<td>165.00</td>
+<td>5646.00</td>
+<td>2.92</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6370</td>
+<td>栗田工業</td>
+<td>2025-09-29</td>
+<td>112.00</td>
+<td>5097.00</td>
+<td>2.20</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6436</td>
+<td>アマノ</td>
+<td>2025-09-29</td>
+<td>180.00</td>
+<td>4270.00</td>
+<td>4.22</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6448</td>
+<td>ブラザー工業</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>2615.00</td>
+<td>3.82</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6460</td>
+<td>セガサミーホールディングス</td>
+<td>2025-09-29</td>
+<td>56.00</td>
+<td>3094.00</td>
+<td>1.81</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6465</td>
+<td>ホシザキ</td>
+<td>2025-12-29</td>
+<td>105.00</td>
+<td>5794.00</td>
+<td>1.81</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6457</td>
+<td>グローリー</td>
+<td>2025-09-29</td>
+<td>112.00</td>
+<td>3769.00</td>
+<td>2.97</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6471</td>
+<td>日本精工</td>
+<td>2025-09-29</td>
+<td>34.00</td>
+<td>796.60</td>
+<td>4.27</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6472</td>
+<td>NTN</td>
+<td>2025-03-28</td>
+<td>11.00</td>
+<td>347.90</td>
+<td>3.16</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6473</td>
+<td>ジェイテクト</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>1515.50</td>
+<td>3.96</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6479</td>
+<td>ミネベアミツミ</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>2725.50</td>
+<td>1.83</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6481</td>
+<td>THK</td>
+<td>2025-12-29</td>
+<td>246.00</td>
+<td>4025.00</td>
+<td>6.11</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6501</td>
+<td>日立製作所</td>
+<td>2025-09-29</td>
+<td>46.00</td>
+<td>3896.00</td>
+<td>1.18</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>6503</td>
+<td>三菱電機</td>
+<td>2025-09-29</td>
+<td>55.00</td>
+<td>3657.00</td>
+<td>1.50</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>6504</td>
+<td>富士電機</td>
+<td>2025-03-28</td>
+<td>170.00</td>
+<td>9693.00</td>
+<td>1.75</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6506</td>
+<td>安川電機</td>
+<td>2026-02-26</td>
+<td>68.00</td>
+<td>2930.00</td>
+<td>2.32</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6525</td>
+<td>KOKUSAI ELECTRIC</td>
+<td>2025-09-29</td>
+<td>36.00</td>
+<td>2656.50</td>
+<td>1.36</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6526</td>
+<td>ソシオネクスト</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>2603.00</td>
+<td>1.92</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6532</td>
+<td>ベイカレント</td>
+<td>2026-02-26</td>
+<td>100.00</td>
+<td>8300.00</td>
+<td>1.20</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6586</td>
+<td>マキタ</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>5032.00</td>
+<td>0.79</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6592</td>
+<td>マブチモーター</td>
+<td>2025-12-29</td>
+<td>78.00</td>
+<td>2561.50</td>
+<td>3.05</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6594</td>
+<td>ニデック</td>
+<td>2025-09-29</td>
+<td>42.50</td>
+<td>2531.00</td>
+<td>1.68</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6632</td>
+<td>JVCケンウッド</td>
+<td>2025-09-29</td>
+<td>24.00</td>
+<td>1208.50</td>
+<td>1.99</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6645</td>
+<td>オムロン</td>
+<td>2025-03-28</td>
+<td>104.00</td>
+<td>3890.00</td>
+<td>2.67</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6674</td>
+<td>ジーエス・ユアサ コーポレーション</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>3417.00</td>
+<td>2.93</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6701</td>
+<td>日本電気</td>
+<td>2025-09-29</td>
+<td>32.00</td>
+<td>4423.00</td>
+<td>0.72</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6702</td>
+<td>富士通</td>
+<td>2025-09-29</td>
+<td>30.00</td>
+<td>3523.00</td>
+<td>0.85</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6723</td>
+<td>ルネサスエレクトロニクス</td>
+<td>2024-12-27</td>
+<td>56.00</td>
+<td>1662.50</td>
+<td>3.37</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6724</td>
+<td>セイコーエプソン</td>
+<td>2025-09-29</td>
+<td>74.00</td>
+<td>1968.50</td>
+<td>3.76</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6728</td>
+<td>アルバック</td>
+<td>2026-06-29</td>
+<td>164.00</td>
+<td>6350.00</td>
+<td>2.58</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6752</td>
+<td>パナソニック ホールディングス</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>1541.00</td>
+<td>2.60</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6762</td>
+<td>TDK</td>
+<td>2025-09-29</td>
+<td>30.00</td>
+<td>2033.00</td>
+<td>1.48</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6770</td>
+<td>アルプスアルパイン</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>1860.50</td>
+<td>3.22</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6806</td>
+<td>ヒロセ電機</td>
+<td>2025-09-29</td>
+<td>490.00</td>
+<td>19425.00</td>
+<td>2.52</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6845</td>
+<td>アズビル</td>
+<td>2025-09-29</td>
+<td>26.00</td>
+<td>1472.50</td>
+<td>1.77</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6754</td>
+<td>アンリツ</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>1698.00</td>
+<td>2.36</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6758</td>
+<td>ソニーグループ</td>
+<td>2025-09-29</td>
+<td>25.00</td>
+<td>4092.00</td>
+<td>0.61</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>6849</td>
+<td>日本光電工業</td>
+<td>2025-09-29</td>
+<td>32.00</td>
+<td>1733.50</td>
+<td>1.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6857</td>
+<td>アドバンテスト</td>
+<td>2025-03-28</td>
+<td>39.00</td>
+<td>11440.00</td>
+<td>0.34</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6856</td>
+<td>堀場製作所</td>
+<td>2025-12-29</td>
+<td>420.00</td>
+<td>11795.00</td>
+<td>3.56</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6861</td>
+<td>キーエンス</td>
+<td>2025-09-18</td>
+<td>350.00</td>
+<td>56690.00</td>
+<td>0.62</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>6869</td>
+<td>シスメックス</td>
+<td>2025-09-29</td>
+<td>36.00</td>
+<td>1952.50</td>
+<td>1.84</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6902</td>
+<td>デンソー</td>
+<td>2025-09-29</td>
+<td>64.00</td>
+<td>2182.50</td>
+<td>2.93</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6841</td>
+<td>横河電機</td>
+<td>2025-09-29</td>
+<td>64.00</td>
+<td>4297.00</td>
+<td>1.49</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6920</td>
+<td>レーザーテック</td>
+<td>2025-12-29</td>
+<td>329.00</td>
+<td>15645.00</td>
+<td>2.10</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6923</td>
+<td>スタンレー電気</td>
+<td>2025-09-29</td>
+<td>92.00</td>
+<td>2981.50</td>
+<td>3.09</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6925</td>
+<td>ウシオ電機</td>
+<td>2026-03-30</td>
+<td>70.00</td>
+<td>2219.00</td>
+<td>3.15</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6952</td>
+<td>カシオ計算機</td>
+<td>2025-03-28</td>
+<td>45.00</td>
+<td>1279.00</td>
+<td>3.52</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6954</td>
+<td>ファナック</td>
+<td>2025-03-28</td>
+<td>94.39</td>
+<td>4110.00</td>
+<td>2.30</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6951</td>
+<td>日本電子</td>
+<td>2025-09-29</td>
+<td>106.00</td>
+<td>4905.00</td>
+<td>2.16</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6963</td>
+<td>ローム</td>
+<td>2025-03-28</td>
+<td>50.00</td>
+<td>2048.00</td>
+<td>2.44</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6965</td>
+<td>浜松ホトニクス</td>
+<td>2025-09-29</td>
+<td>38.00</td>
+<td>1522.50</td>
+<td>2.50</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6971</td>
+<td>京セラ</td>
+<td>2025-03-28</td>
+<td>50.00</td>
+<td>2026.50</td>
+<td>2.47</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>6976</td>
+<td>太陽誘電</td>
+<td>2025-09-29</td>
+<td>90.00</td>
+<td>3085.00</td>
+<td>2.92</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>6981</td>
+<td>村田製作所</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>2499.50</td>
+<td>2.40</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>6988</td>
+<td>日東電工</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>3459.00</td>
+<td>1.73</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7011</td>
+<td>三菱重工業</td>
+<td>2025-09-29</td>
+<td>24.00</td>
+<td>3607.00</td>
+<td>0.67</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>7012</td>
+<td>川崎重工業</td>
+<td>2025-09-29</td>
+<td>150.00</td>
+<td>8911.00</td>
+<td>1.68</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7013</td>
+<td>IHI</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>15100.00</td>
+<td>0.53</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7164</td>
+<td>全国保証</td>
+<td>2025-09-29</td>
+<td>140.00</td>
+<td>3418.00</td>
+<td>4.10</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7180</td>
+<td>九州フィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>24.00</td>
+<td>877.50</td>
+<td>2.74</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7167</td>
+<td>めぶきフィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>24.00</td>
+<td>905.00</td>
+<td>2.65</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7181</td>
+<td>かんぽ生命保険</td>
+<td>2025-09-29</td>
+<td>124.00</td>
+<td>4198.00</td>
+<td>2.95</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7182</td>
+<td>ゆうちょ銀行</td>
+<td>2026-03-30</td>
+<td>132.00</td>
+<td>1873.00</td>
+<td>7.05</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>7186</td>
+<td>コンコルディア・フィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>34.00</td>
+<td>1118.00</td>
+<td>3.04</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7201</td>
+<td>日産自動車</td>
+<td>2024-03-28</td>
+<td>20.00</td>
+<td>345.00</td>
+<td>5.80</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>7202</td>
+<td>いすゞ自動車</td>
+<td>2025-09-29</td>
+<td>92.00</td>
+<td>1995.00</td>
+<td>4.61</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7203</td>
+<td>トヨタ自動車</td>
+<td>2025-09-29</td>
+<td>95.00</td>
+<td>2962.50</td>
+<td>3.21</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>7211</td>
+<td>三菱自動車工業</td>
+<td>2025-09-29</td>
+<td>10.00</td>
+<td>418.90</td>
+<td>2.39</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7240</td>
+<td>NOK</td>
+<td>2025-09-29</td>
+<td>110.00</td>
+<td>2689.50</td>
+<td>4.09</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7259</td>
+<td>アイシン</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>2640.50</td>
+<td>2.65</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7261</td>
+<td>マツダ</td>
+<td>2025-09-29</td>
+<td>55.00</td>
+<td>1097.50</td>
+<td>5.01</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7267</td>
+<td>本田技研工業</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>1693.00</td>
+<td>4.13</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>7269</td>
+<td>スズキ</td>
+<td>2025-09-29</td>
+<td>46.00</td>
+<td>2019.00</td>
+<td>2.28</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>7270</td>
+<td>SUBARU</td>
+<td>2025-09-29</td>
+<td>115.00</td>
+<td>3079.00</td>
+<td>3.73</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>7272</td>
+<td>ヤマハ発動機</td>
+<td>2025-12-29</td>
+<td>50.00</td>
+<td>1119.50</td>
+<td>4.47</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7276</td>
+<td>小糸製作所</td>
+<td>2025-09-29</td>
+<td>56.00</td>
+<td>2227.00</td>
+<td>2.51</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7282</td>
+<td>豊田合成</td>
+<td>2025-09-29</td>
+<td>110.00</td>
+<td>3811.00</td>
+<td>2.89</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7309</td>
+<td>シマノ</td>
+<td>2025-12-29</td>
+<td>339.00</td>
+<td>16870.00</td>
+<td>2.01</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>7313</td>
+<td>テイ・エス テック</td>
+<td>2025-09-29</td>
+<td>92.00</td>
+<td>1925.50</td>
+<td>4.78</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7453</td>
+<td>良品計画</td>
+<td>2025-08-28</td>
+<td>22.00</td>
+<td>3104.00</td>
+<td>0.71</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7458</td>
+<td>第一興商</td>
+<td>2025-09-29</td>
+<td>57.00</td>
+<td>1730.00</td>
+<td>3.29</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7459</td>
+<td>メディパルホールディングス</td>
+<td>2025-09-29</td>
+<td>64.00</td>
+<td>2685.00</td>
+<td>2.38</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7476</td>
+<td>アズワン</td>
+<td>2025-09-29</td>
+<td>63.00</td>
+<td>2583.50</td>
+<td>2.44</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7532</td>
+<td>パン・パシフィック・インターナショナルホールディングス</td>
+<td>2025-12-29</td>
+<td>8.50</td>
+<td>5511.00</td>
+<td>0.15</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7550</td>
+<td>ゼンショーホールディングス</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>9322.00</td>
+<td>0.75</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7649</td>
+<td>スギホールディングス</td>
+<td>2026-02-26</td>
+<td>40.00</td>
+<td>3780.00</td>
+<td>1.06</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7729</td>
+<td>東京精密</td>
+<td>2025-09-29</td>
+<td>214.00</td>
+<td>8297.00</td>
+<td>2.58</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7701</td>
+<td>島津製作所</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>3633.00</td>
+<td>2.20</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7731</td>
+<td>ニコン</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>1700.00</td>
+<td>2.94</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7730</td>
+<td>マニー</td>
+<td>2025-08-28</td>
+<td>46.00</td>
+<td>1284.00</td>
+<td>3.58</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7732</td>
+<td>トプコン</td>
+<td>2025-03-28</td>
+<td>42.00</td>
+<td>3296.00</td>
+<td>1.27</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7733</td>
+<td>オリンパス</td>
+<td>2026-03-30</td>
+<td>60.00</td>
+<td>1872.00</td>
+<td>3.21</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>7735</td>
+<td>SCREENホールディングス</td>
+<td>2025-09-29</td>
+<td>280.00</td>
+<td>10805.00</td>
+<td>2.59</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7741</td>
+<td>HOYA</td>
+<td>2025-03-28</td>
+<td>160.00</td>
+<td>20515.00</td>
+<td>0.78</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>7747</td>
+<td>朝日インテック</td>
+<td>2026-06-29</td>
+<td>30.91</td>
+<td>2721.50</td>
+<td>1.14</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7751</td>
+<td>キヤノン</td>
+<td>2025-12-29</td>
+<td>160.00</td>
+<td>4415.00</td>
+<td>3.62</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>7752</td>
+<td>リコー</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>1362.00</td>
+<td>2.94</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7832</td>
+<td>バンダイナムコホールディングス</td>
+<td>2025-09-29</td>
+<td>46.00</td>
+<td>5003.00</td>
+<td>0.92</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>7846</td>
+<td>パイロットコーポレーション</td>
+<td>2025-12-29</td>
+<td>120.00</td>
+<td>4554.00</td>
+<td>2.64</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7867</td>
+<td>タカラトミー</td>
+<td>2025-09-29</td>
+<td>64.00</td>
+<td>3320.00</td>
+<td>1.93</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7911</td>
+<td>TOPPANホールディングス</td>
+<td>2025-09-29</td>
+<td>56.00</td>
+<td>3900.00</td>
+<td>1.44</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7912</td>
+<td>大日本印刷</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>2610.50</td>
+<td>1.53</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7936</td>
+<td>アシックス</td>
+<td>2025-12-29</td>
+<td>32.00</td>
+<td>4042.00</td>
+<td>0.79</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7951</td>
+<td>ヤマハ</td>
+<td>2025-09-29</td>
+<td>26.00</td>
+<td>999.80</td>
+<td>2.60</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7956</td>
+<td>ピジョン</td>
+<td>2025-12-29</td>
+<td>76.00</td>
+<td>1856.00</td>
+<td>4.09</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7974</td>
+<td>任天堂</td>
+<td>2025-03-28</td>
+<td>120.00</td>
+<td>13270.00</td>
+<td>0.90</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>7984</td>
+<td>コクヨ</td>
+<td>2025-12-29</td>
+<td>23.00</td>
+<td>933.40</td>
+<td>2.46</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>7988</td>
+<td>ニフコ</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>4410.00</td>
+<td>1.81</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8002</td>
+<td>丸紅</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>3467.00</td>
+<td>2.88</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8012</td>
+<td>長瀬産業</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>3313.00</td>
+<td>3.02</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8001</td>
+<td>伊藤忠商事</td>
+<td>2025-09-29</td>
+<td>200.00</td>
+<td>8617.00</td>
+<td>2.32</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>8015</td>
+<td>豊田通商</td>
+<td>2025-09-29</td>
+<td>110.00</td>
+<td>4006.00</td>
+<td>2.75</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8020</td>
+<td>兼松</td>
+<td>2025-09-29</td>
+<td>115.00</td>
+<td>3109.00</td>
+<td>3.70</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8031</td>
+<td>三井物産</td>
+<td>2025-09-29</td>
+<td>120.00</td>
+<td>3715.00</td>
+<td>3.23</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>8035</td>
+<td>東京エレクトロン</td>
+<td>2025-09-29</td>
+<td>480.00</td>
+<td>20240.00</td>
+<td>2.37</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>8053</td>
+<td>住友商事</td>
+<td>2025-09-29</td>
+<td>140.00</td>
+<td>4332.00</td>
+<td>3.23</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8056</td>
+<td>BIPROGY</td>
+<td>2025-09-29</td>
+<td>120.00</td>
+<td>6241.00</td>
+<td>1.92</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8058</td>
+<td>三菱商事</td>
+<td>2025-09-29</td>
+<td>110.00</td>
+<td>3445.00</td>
+<td>3.19</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>8060</td>
+<td>キヤノンマーケティングジャパン</td>
+<td>2025-12-29</td>
+<td>150.00</td>
+<td>5795.00</td>
+<td>2.59</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8086</td>
+<td>ニプロ</td>
+<td>2025-09-29</td>
+<td>36.00</td>
+<td>1562.50</td>
+<td>2.30</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8088</td>
+<td>岩谷産業</td>
+<td>2025-09-29</td>
+<td>47.00</td>
+<td>1655.00</td>
+<td>2.84</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8111</td>
+<td>ゴールドウイン</td>
+<td>2025-09-29</td>
+<td>106.00</td>
+<td>7363.00</td>
+<td>1.44</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8113</td>
+<td>ユニ・チャーム</td>
+<td>2025-12-29</td>
+<td>18.00</td>
+<td>986.00</td>
+<td>1.83</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8129</td>
+<td>東邦ホールディングス</td>
+<td>2025-09-29</td>
+<td>90.00</td>
+<td>5596.00</td>
+<td>1.61</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8136</td>
+<td>サンリオ</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>7665.00</td>
+<td>0.78</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8174</td>
+<td>日本瓦斯</td>
+<td>2025-09-29</td>
+<td>103.00</td>
+<td>2887.50</td>
+<td>3.57</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8227</td>
+<td>しまむら</td>
+<td>2026-02-19</td>
+<td>210.00</td>
+<td>11325.00</td>
+<td>1.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8233</td>
+<td>高島屋</td>
+<td>2026-02-26</td>
+<td>26.00</td>
+<td>1395.00</td>
+<td>1.86</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8242</td>
+<td>エイチ・ツー・オー リテイリング</td>
+<td>2025-09-29</td>
+<td>44.00</td>
+<td>2231.50</td>
+<td>1.97</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8252</td>
+<td>丸井グループ</td>
+<td>2025-09-29</td>
+<td>132.00</td>
+<td>3285.00</td>
+<td>4.02</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8253</td>
+<td>クレディセゾン</td>
+<td>2026-03-30</td>
+<td>260.00</td>
+<td>3840.00</td>
+<td>6.77</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8273</td>
+<td>イズミ</td>
+<td>2026-02-26</td>
+<td>90.00</td>
+<td>3246.00</td>
+<td>2.77</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8267</td>
+<td>イオン</td>
+<td>2026-02-26</td>
+<td>27.00</td>
+<td>1773.50</td>
+<td>1.52</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8279</td>
+<td>ヤオコー</td>
+<td>2025-09-29</td>
+<td>125.00</td>
+<td>9055.00</td>
+<td>1.38</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8282</td>
+<td>ケーズホールディングス</td>
+<td>2025-09-29</td>
+<td>44.00</td>
+<td>1586.50</td>
+<td>2.77</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8283</td>
+<td>PALTAC</td>
+<td>2025-09-29</td>
+<td>126.00</td>
+<td>4666.00</td>
+<td>2.70</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8304</td>
+<td>あおぞら銀行</td>
+<td>2025-06-27</td>
+<td>82.00</td>
+<td>2270.00</td>
+<td>3.61</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8308</td>
+<td>りそなホールディングス</td>
+<td>2025-09-29</td>
+<td>29.00</td>
+<td>1476.50</td>
+<td>1.96</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8316</td>
+<td>三井住友フィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>136.00</td>
+<td>4084.00</td>
+<td>3.33</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>8309</td>
+<td>三井住友トラストグループ</td>
+<td>2025-09-29</td>
+<td>160.00</td>
+<td>4250.00</td>
+<td>3.76</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8334</td>
+<td>群馬銀行</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>1570.50</td>
+<td>3.18</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8331</td>
+<td>千葉銀行</td>
+<td>2025-09-29</td>
+<td>48.00</td>
+<td>1521.00</td>
+<td>3.16</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8341</td>
+<td>七十七銀行</td>
+<td>2025-09-29</td>
+<td>210.00</td>
+<td>5671.00</td>
+<td>3.70</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8306</td>
+<td>三菱UFJフィナンシャル・グループ</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>2268.50</td>
+<td>3.09</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>8354</td>
+<td>ふくおかフィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>170.00</td>
+<td>4457.00</td>
+<td>3.81</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8359</td>
+<td>八十二銀行</td>
+<td>2025-09-29</td>
+<td>45.00</td>
+<td>1439.50</td>
+<td>3.13</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8377</td>
+<td>ほくほくフィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>3730.00</td>
+<td>1.88</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8410</td>
+<td>セブン銀行</td>
+<td>2025-09-29</td>
+<td>11.00</td>
+<td>288.20</td>
+<td>3.82</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8411</td>
+<td>みずほフィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>145.00</td>
+<td>4859.00</td>
+<td>2.98</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>8418</td>
+<td>山口フィナンシャルグループ</td>
+<td>2025-09-29</td>
+<td>64.00</td>
+<td>1775.50</td>
+<td>3.60</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8439</td>
+<td>東京センチュリー</td>
+<td>2025-09-29</td>
+<td>68.00</td>
+<td>1902.00</td>
+<td>3.58</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8424</td>
+<td>芙蓉総合リース</td>
+<td>2025-09-29</td>
+<td>158.00</td>
+<td>4458.00</td>
+<td>3.54</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8473</td>
+<td>SBIホールディングス</td>
+<td>2025-03-28</td>
+<td>170.00</td>
+<td>6695.00</td>
+<td>2.54</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8572</td>
+<td>アコム</td>
+<td>2025-09-29</td>
+<td>20.00</td>
+<td>478.60</td>
+<td>4.18</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8570</td>
+<td>イオンフィナンシャルサービス</td>
+<td>2026-02-26</td>
+<td>53.00</td>
+<td>1539.50</td>
+<td>3.44</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8591</td>
+<td>オリックス</td>
+<td>2025-09-29</td>
+<td>120.02</td>
+<td>3876.00</td>
+<td>3.10</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8593</td>
+<td>三菱HCキャピタル</td>
+<td>2025-09-29</td>
+<td>46.00</td>
+<td>1224.00</td>
+<td>3.76</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8595</td>
+<td>ジャフコ グループ</td>
+<td>2025-09-29</td>
+<td>133.00</td>
+<td>2607.50</td>
+<td>5.10</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8604</td>
+<td>野村ホールディングス</td>
+<td>2025-03-28</td>
+<td>47.00</td>
+<td>1064.00</td>
+<td>4.42</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8601</td>
+<td>大和証券グループ本社</td>
+<td>2025-03-28</td>
+<td>56.00</td>
+<td>1163.00</td>
+<td>4.82</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8630</td>
+<td>SOMPOホールディングス</td>
+<td>2025-09-29</td>
+<td>150.00</td>
+<td>4773.00</td>
+<td>3.14</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8697</td>
+<td>日本取引所グループ</td>
+<td>2025-09-29</td>
+<td>43.00</td>
+<td>1533.00</td>
+<td>2.80</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8725</td>
+<td>MS&ADインシュアランスグループホールディングス</td>
+<td>2025-09-29</td>
+<td>120.00</td>
+<td>3496.00</td>
+<td>3.43</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8750</td>
+<td>第一生命ホールディングス</td>
+<td>2025-09-29</td>
+<td>48.00</td>
+<td>1221.00</td>
+<td>3.93</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8766</td>
+<td>東京海上ホールディングス</td>
+<td>2025-09-29</td>
+<td>210.00</td>
+<td>6472.00</td>
+<td>3.24</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>8801</td>
+<td>三井不動産</td>
+<td>2025-09-29</td>
+<td>33.00</td>
+<td>1593.00</td>
+<td>2.07</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8802</td>
+<td>三菱地所</td>
+<td>2025-09-29</td>
+<td>46.00</td>
+<td>3220.00</td>
+<td>1.43</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8804</td>
+<td>東京建物</td>
+<td>2025-12-29</td>
+<td>98.00</td>
+<td>2822.50</td>
+<td>3.47</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8795</td>
+<td>T&Dホールディングス</td>
+<td>2025-09-29</td>
+<td>124.00</td>
+<td>3934.00</td>
+<td>3.15</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>8830</td>
+<td>住友不動産</td>
+<td>2025-09-29</td>
+<td>86.00</td>
+<td>6160.00</td>
+<td>1.40</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>8876</td>
+<td>リログループ</td>
+<td>2026-03-30</td>
+<td>87.00</td>
+<td>1729.50</td>
+<td>5.03</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9001</td>
+<td>東武鉄道</td>
+<td>2025-09-29</td>
+<td>65.00</td>
+<td>2762.50</td>
+<td>2.35</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9003</td>
+<td>相鉄ホールディングス</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>2663.00</td>
+<td>2.63</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9005</td>
+<td>東急</td>
+<td>2025-09-29</td>
+<td>28.00</td>
+<td>1906.00</td>
+<td>1.47</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9006</td>
+<td>京浜急行電鉄</td>
+<td>2025-09-29</td>
+<td>34.00</td>
+<td>1574.00</td>
+<td>2.16</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9007</td>
+<td>小田急電鉄</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>1742.50</td>
+<td>2.87</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9008</td>
+<td>京王電鉄</td>
+<td>2025-09-29</td>
+<td>105.00</td>
+<td>3868.00</td>
+<td>2.71</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9021</td>
+<td>西日本旅客鉄道</td>
+<td>2025-09-29</td>
+<td>86.00</td>
+<td>3359.00</td>
+<td>2.56</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>9023</td>
+<td>東京地下鉄</td>
+<td>2025-09-29</td>
+<td>42.00</td>
+<td>1725.50</td>
+<td>2.43</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9022</td>
+<td>東海旅客鉄道</td>
+<td>2025-09-29</td>
+<td>32.00</td>
+<td>4081.00</td>
+<td>0.78</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>9024</td>
+<td>西武ホールディングス</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>5405.00</td>
+<td>0.74</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9031</td>
+<td>西日本鉄道</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>2302.00</td>
+<td>1.74</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9009</td>
+<td>京成電鉄</td>
+<td>2025-09-29</td>
+<td>18.00</td>
+<td>1414.00</td>
+<td>1.27</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9041</td>
+<td>近鉄グループホールディングス</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>3060.00</td>
+<td>1.96</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9020</td>
+<td>東日本旅客鉄道</td>
+<td>2025-09-29</td>
+<td>62.00</td>
+<td>3749.00</td>
+<td>1.65</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>9042</td>
+<td>阪急阪神ホールディングス</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>4416.00</td>
+<td>2.26</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9044</td>
+<td>南海電気鉄道</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>2702.50</td>
+<td>1.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9045</td>
+<td>京阪ホールディングス</td>
+<td>2026-03-30</td>
+<td>129.00</td>
+<td>3411.00</td>
+<td>3.78</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9048</td>
+<td>名古屋鉄道</td>
+<td>2026-03-30</td>
+<td>40.00</td>
+<td>1738.00</td>
+<td>2.30</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9064</td>
+<td>ヤマトホールディングス</td>
+<td>2025-09-29</td>
+<td>46.00</td>
+<td>2477.00</td>
+<td>1.86</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9072</td>
+<td>ニッコンホールディングス</td>
+<td>2025-09-29</td>
+<td>74.00</td>
+<td>3134.00</td>
+<td>2.36</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9065</td>
+<td>山九</td>
+<td>2025-09-29</td>
+<td>232.00</td>
+<td>8105.00</td>
+<td>2.86</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9101</td>
+<td>日本郵船</td>
+<td>2025-09-29</td>
+<td>240.00</td>
+<td>5520.00</td>
+<td>4.35</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>9076</td>
+<td>セイノーホールディングス</td>
+<td>2025-09-29</td>
+<td>102.00</td>
+<td>2304.00</td>
+<td>4.43</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9107</td>
+<td>川崎汽船</td>
+<td>2025-09-29</td>
+<td>120.00</td>
+<td>2318.00</td>
+<td>5.18</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9142</td>
+<td>九州旅客鉄道</td>
+<td>2025-09-29</td>
+<td>115.00</td>
+<td>4154.00</td>
+<td>2.77</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9143</td>
+<td>SGホールディングス</td>
+<td>2025-09-29</td>
+<td>54.00</td>
+<td>1629.00</td>
+<td>3.31</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9104</td>
+<td>商船三井</td>
+<td>2025-09-29</td>
+<td>180.00</td>
+<td>4813.00</td>
+<td>3.74</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>9147</td>
+<td>NIPPON EXPRESSホールディングス</td>
+<td>2025-12-29</td>
+<td>100.00</td>
+<td>3384.00</td>
+<td>2.96</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9201</td>
+<td>日本航空</td>
+<td>2025-09-29</td>
+<td>92.00</td>
+<td>3130.00</td>
+<td>2.94</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9301</td>
+<td>三菱倉庫</td>
+<td>2025-09-29</td>
+<td>36.00</td>
+<td>1225.50</td>
+<td>2.94</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9364</td>
+<td>上組</td>
+<td>2025-09-29</td>
+<td>190.00</td>
+<td>4481.00</td>
+<td>4.24</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9401</td>
+<td>TBSホールディングス</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>5469.00</td>
+<td>1.28</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9404</td>
+<td>日本テレビホールディングス</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>3959.00</td>
+<td>1.52</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9432</td>
+<td>NTT</td>
+<td>2025-09-29</td>
+<td>5.30</td>
+<td>159.20</td>
+<td>3.33</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>9433</td>
+<td>KDDI</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>2523.00</td>
+<td>3.17</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>9434</td>
+<td>ソフトバンク</td>
+<td>2025-09-29</td>
+<td>8.60</td>
+<td>228.30</td>
+<td>3.77</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>9435</td>
+<td>光通信</td>
+<td>2025-09-29</td>
+<td>724.00</td>
+<td>39100.00</td>
+<td>1.85</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9202</td>
+<td>ANAホールディングス</td>
+<td>2026-03-30</td>
+<td>60.00</td>
+<td>2961.50</td>
+<td>2.03</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>9449</td>
+<td>GMOインターネットグループ</td>
+<td>2025-06-27</td>
+<td>52.10</td>
+<td>3839.00</td>
+<td>1.36</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9468</td>
+<td>KADOKAWA</td>
+<td>2026-03-30</td>
+<td>60.00</td>
+<td>3319.00</td>
+<td>1.81</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9502</td>
+<td>中部電力</td>
+<td>2025-09-29</td>
+<td>70.00</td>
+<td>2070.50</td>
+<td>3.38</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9503</td>
+<td>関西電力</td>
+<td>2025-09-29</td>
+<td>60.00</td>
+<td>2091.50</td>
+<td>2.87</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9504</td>
+<td>中国電力</td>
+<td>2025-09-29</td>
+<td>21.00</td>
+<td>875.30</td>
+<td>2.40</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9505</td>
+<td>北陸電力</td>
+<td>2025-09-29</td>
+<td>20.00</td>
+<td>921.40</td>
+<td>2.17</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9506</td>
+<td>東北電力</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>1141.50</td>
+<td>3.50</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9507</td>
+<td>四国電力</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>1377.00</td>
+<td>3.63</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9508</td>
+<td>九州電力</td>
+<td>2025-09-29</td>
+<td>50.00</td>
+<td>1563.00</td>
+<td>3.20</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9509</td>
+<td>北海道電力</td>
+<td>2025-09-29</td>
+<td>30.00</td>
+<td>1179.50</td>
+<td>2.54</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9513</td>
+<td>電源開発</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>2840.50</td>
+<td>3.52</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9531</td>
+<td>東京瓦斯</td>
+<td>2025-09-29</td>
+<td>80.00</td>
+<td>5723.00</td>
+<td>1.40</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9532</td>
+<td>大阪瓦斯</td>
+<td>2025-09-29</td>
+<td>105.00</td>
+<td>4300.00</td>
+<td>2.44</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9533</td>
+<td>東邦瓦斯</td>
+<td>2025-09-29</td>
+<td>90.00</td>
+<td>4487.00</td>
+<td>2.01</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9602</td>
+<td>東宝</td>
+<td>2026-02-26</td>
+<td>85.00</td>
+<td>9220.00</td>
+<td>0.92</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9613</td>
+<td>NTTデータグループ</td>
+<td>2025-03-28</td>
+<td>25.00</td>
+<td>3970.00</td>
+<td>0.63</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9616</td>
+<td>共立メンテナンス</td>
+<td>2025-09-29</td>
+<td>46.00</td>
+<td>3332.00</td>
+<td>1.38</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9627</td>
+<td>アインホールディングス</td>
+<td>2026-04-28</td>
+<td>160.00</td>
+<td>6128.00</td>
+<td>2.61</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9697</td>
+<td>カプコン</td>
+<td>2025-09-29</td>
+<td>40.00</td>
+<td>4000.00</td>
+<td>1.00</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9684</td>
+<td>スクウェア・エニックス・ホールディングス</td>
+<td>2025-09-29</td>
+<td>79.00</td>
+<td>10020.00</td>
+<td>0.79</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9719</td>
+<td>SCSK</td>
+<td>2025-09-29</td>
+<td>94.00</td>
+<td>4724.00</td>
+<td>1.99</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9706</td>
+<td>日本空港ビルデング</td>
+<td>2025-09-29</td>
+<td>90.00</td>
+<td>4909.00</td>
+<td>1.83</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9735</td>
+<td>セコム</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>5536.00</td>
+<td>1.81</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>9759</td>
+<td>NSD</td>
+<td>2026-03-30</td>
+<td>176.00</td>
+<td>3240.00</td>
+<td>5.43</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9766</td>
+<td>コナミグループ</td>
+<td>2025-09-29</td>
+<td>166.00</td>
+<td>21840.00</td>
+<td>0.76</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9744</td>
+<td>メイテックグループホールディングス</td>
+<td>2025-09-29</td>
+<td>178.00</td>
+<td>3330.00</td>
+<td>5.35</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9831</td>
+<td>ヤマダホールディングス</td>
+<td>2026-03-30</td>
+<td>34.00</td>
+<td>490.00</td>
+<td>6.94</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9843</td>
+<td>ニトリホールディングス</td>
+<td>2025-09-29</td>
+<td>92.40</td>
+<td>14245.00</td>
+<td>0.65</td>
+<td>TOPIX Large70</td>
+</tr>
+
+<tr>
+<td>9962</td>
+<td>ミスミグループ本社</td>
+<td>2025-09-29</td>
+<td>43.08</td>
+<td>2320.50</td>
+<td>1.86</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9983</td>
+<td>ファーストリテイリング</td>
+<td>2025-08-28</td>
+<td>480.00</td>
+<td>48490.00</td>
+<td>0.99</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>9984</td>
+<td>ソフトバンクグループ</td>
+<td>2025-09-29</td>
+<td>44.00</td>
+<td>15540.00</td>
+<td>0.28</td>
+<td>TOPIX Core30</td>
+</tr>
+
+<tr>
+<td>9987</td>
+<td>スズケン</td>
+<td>2025-09-29</td>
+<td>100.00</td>
+<td>6024.00</td>
+<td>1.66</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9861</td>
+<td>吉野家ホールディングス</td>
+<td>2026-02-26</td>
+<td>20.00</td>
+<td>3107.00</td>
+<td>0.64</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+<tr>
+<td>9989</td>
+<td>サンドラッグ</td>
+<td>2025-09-29</td>
+<td>132.00</td>
+<td>4603.00</td>
+<td>2.87</td>
+<td>TOPIX Mid400</td>
+</tr>
+
+
+</table>
+
+<script>
+// 动态筛选
+const categorySelect = document.getElementById("categorySelect");
+const monthSelect = document.getElementById("monthSelect");
+const table = document.getElementById("dividendTable");
+
+function filterTable() {
+    const cat = categorySelect.value;
+    const month = monthSelect.value;
+
+    for (let i = 1; i < table.rows.length; i++) {
+        const row = table.rows[i];
+        const scale = row.cells[6].innerText;
+        const date = row.cells[2].innerText;
+
+        let show = true;
+        if (cat !== "全部" && scale !== cat) show = false;
+        if (month !== "全部" && !date.startsWith(month)) show = false;
+
+        row.style.display = show ? "" : "none";
+    }
+}
+
+// 初始排序：按股息率降序
+function sortTableByYield() {
+    let rows = Array.from(table.rows).slice(1);
+    rows.sort((a, b) => parseFloat(b.cells[5].innerText) - parseFloat(a.cells[5].innerText));
+    for (let r of rows) table.appendChild(r);
+}
+
+categorySelect.addEventListener("change", filterTable);
+monthSelect.addEventListener("change", filterTable);
+
+sortTableByYield(); // 初始排序
+// 填充当前月和下个月选项
+function fillMonthSelect(selectId) {
+    const monthSelect = document.getElementById(selectId);
+    if (!monthSelect) return;
+
+    // 清空已有选项
+    monthSelect.innerHTML = "";
+
+    const now = new Date();
+
+    // 当前月
+    const currMonth = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0");
+    // 下个月
+    const next = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    const nextMonth = next.getFullYear() + "-" + String(next.getMonth() + 1).padStart(2, "0");
+
+    // 添加“全部”
+    const allOption = document.createElement("option");
+    allOption.value = "全部";
+    allOption.text = "全部";
+    monthSelect.appendChild(allOption);
+
+    // 添加当前月
+    const currOption = document.createElement("option");
+    currOption.value = currMonth;
+    currOption.text = currMonth;
+    monthSelect.appendChild(currOption);
+
+    // 添加下个月
+    const nextOption = document.createElement("option");
+    nextOption.value = nextMonth;
+    nextOption.text = nextMonth;
+    monthSelect.appendChild(nextOption);
+}
+
+// 调用函数
+fillMonthSelect("monthSelect");
+</script>
+
+</body>
+</html>
