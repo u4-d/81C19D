@@ -1,0 +1,37 @@
+name: Weekly Stock Data Cleanup
+
+on:
+  schedule:
+    # cron 采用 UTC 时间。
+    # 日本周日 22:00 = UTC 周日 13:00
+    - cron: '0 13 * * 0'
+  workflow_dispatch: # 允许手动点击运行
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Delete old files in stock_data
+        run: |
+          echo "Current Date (UTC): $(date)"
+          
+          # 进入 stock_data 目录
+          cd stock_data || exit 0
+          
+          # 查找修改时间在 6 天以上（即本周一之前）的 .zip 文件
+          # -mtime +6 表示：当前时间 - 6天 之前的文件
+          find . -name "*.zip" -mtime +6 -exec git rm {} \;
+          
+          # 检查是否有文件被删除
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Cleanup: Remove stock data prior to this Monday"
+            git push origin main
+            echo "✅ Cleanup completed."
+          else
+            echo "ℹ️ No old files found to cleanup."
+          fi
